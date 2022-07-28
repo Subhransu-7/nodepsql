@@ -1,15 +1,4 @@
-const { Pool } = require('pg')
-
-const pool= new Pool(
-    {
-        user:'subha',
-        host: 'localhost',
-        database:'api',
-        password:'subha123',
-        port:5432,
-    }
-)
-
+const pool= require('./pool')
 //get all users from database
 
 const getUsers =(req,res)=>{
