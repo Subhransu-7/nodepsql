@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended:true,}))
 app.listen(3000,()=>{console.log("server running on port 3000.....")})
 
 app.get('/',(req,res)=>{
-    res.sendFile('a.html',{root:'./html/'})
+    res.sendFile('a.html',{root:'.'})
 })
 app.get('/users',db.getUsers)
 app.get('users/:id',db.getUserbyId)
