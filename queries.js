@@ -2,7 +2,7 @@ const pool= require('./pool')
 //get all users from database
 
 const getUsers =(req,res)=>{
-    pool.query('SELECT * FROM users ORDER BY id ASC',(error,result)=>{
+    pool.query('SELECT * FROM mock_data ORDER BY id ASC',(error,result)=>{
         if (error){
             throw error;
         }
