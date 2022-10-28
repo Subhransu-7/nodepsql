@@ -12,6 +12,11 @@ app.listen(3000,()=>{console.log("server running on port 3000.....")})
 app.get('/',(req,res)=>{
     res.json('all is well')
 })
+app.get('/love', (req,res)=>{
+res.json("love is everything")
+
+}
+
 app.get('/users',db.getUsers)
 app.get('users/:id',db.getUserbyId)
 app.post('/users',db.Createuser)
