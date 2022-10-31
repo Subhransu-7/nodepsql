@@ -1,13 +1,10 @@
-const { Pool } = require('pg')
-
-const pool= new Pool(
-    {
-        user:'subha',
-        host: 'localhost',
-        database:'api',
-        password:'subha123',
-        port:5432,
-    }
-)
+const { Pool} = require('pg')
+const connectionString = 'postgres://subha:yigN6t5mtFNg1smmRb8L6OYGPeOBjGIJ@dpg-cd557gaen0hugpkke9bg-a.oregon-postgres.render.com/edb_efaz'
+const pool = new Pool({
+  connectionString,
+  ssl: {
+    rejectUnauthorized: false,
+  }
+})
 
 module.exports=pool

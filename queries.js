@@ -2,7 +2,7 @@ const pool= require('./pool')
 //get all users from database
 
 const getUsers =(req,res)=>{
-    pool.query('SELECT * FROM users ORDER BY id ASC',(error,result)=>{
+    pool.query('SELECT * FROM mock_data ORDER BY id ASC',(error,result)=>{
         if (error){
             throw error;
         }
@@ -11,11 +11,34 @@ const getUsers =(req,res)=>{
     })
 }
 
+
+const getProducts=(req,res) =>{
+    const cat=req.params.catagory
+    pool.query(`SELECT * FROM ${cat} ORDER BY id ASC`,(error,result)=>{
+        if (error){
+            throw error;
+        }
+
+        res.status(200).send(result.rows)
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
 //get a single user from the database
 
 const getUserbyId=(req,res)=>{
-    const id=parseInt(req.param.id)
-    pool.query('SELECT * FROM users WHERE id=$1',[id],(error,result)=>{
+    const id= req.params.id
+
+    pool.query('SELECT * FROM mock_data WHERE id=$1',[id],(error,result)=>{
         if (error){
             throw error
         }
@@ -70,5 +93,6 @@ module.exports ={
     getUserbyId,
     Createuser,
     updateUser,
-    deleteUser
+    deleteUser,
+    getProducts
 }
