@@ -15,6 +15,7 @@ const getUsers =(req,res)=>{
 const getProducts=(req,res) =>{
     const cat=req.params.catagory
     pool.query(`SELECT * FROM ${cat} ORDER BY id ASC`,(error,result)=>{
+
         if (error){
             throw error;
         }

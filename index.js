@@ -4,11 +4,19 @@ const db= require('./queries')
 const cors=require('cors')
 
 const app=express();
-app.use(cors)
+
+const cors= require('cors')
+app.use(cors())
+
+
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true,}))
 
 app.listen(3000,()=>{console.log("server running on port 3000.....")})
+
+
+
 
 app.get('/users',db.getUsers),
 app.get('/products/:catagory',db.getProducts)
