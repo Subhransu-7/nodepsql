@@ -13,11 +13,9 @@ const getUsers =(req,res)=>{
 
 
 const getProducts=(req,res) =>{
-    const product= req.params.catagory
+    const cat=req.params.catagory
+    pool.query(`SELECT * FROM ${cat} ORDER BY id ASC`,(error,result)=>{
 
-    
-
-    pool.query(`SELECT * FROM ${product} ORDER BY id ASC`,(error,result)=>{
         if (error){
             throw error;
         }
